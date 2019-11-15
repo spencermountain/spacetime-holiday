@@ -1,4 +1,5 @@
 <div align="center">
+  <img src="https://cloud.githubusercontent.com/assets/399657/23590290/ede73772-01aa-11e7-8915-181ef21027bc.png" />
   <div>
     <h2>spacetime-holiday</h2>
   </div>
