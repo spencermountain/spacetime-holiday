@@ -3,13 +3,13 @@
     <h2>spacetime-holiday</h2>
   </div>
   <div>
-    calculate the date of various holidays
+    calculate the calendar-date of holidays
   </div>
-  <a href="https://npmjs.org/package/spacetime-week">
+  <a href="https://npmjs.org/package/spacetime-holiday">
     <img src="https://img.shields.io/npm/v/spacetime-holday.svg?style=flat-square" />
   </a>
-  <a href="https://unpkg.com/spacetime/builds/spacetime-holday.min.js">
-    <img src="https://badge-size.herokuapp.com/spencermountain/spacetime-holday/master/builds/spacetime-holday.min.js" />
+  <a href="https://unpkg.com/spacetime/builds/spacetime-holiday.min.js">
+    <img src="https://badge-size.herokuapp.com/spencermountain/spacetime-holday/master/builds/spacetime-holiday.min.js" />
   </a>
   <div>
     <sup>
