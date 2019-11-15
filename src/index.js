@@ -3,6 +3,7 @@ const fixedDates = require('./01-fixedDates')
 const nthWeekday = require('./02-nthWeekday')
 const easterDates = require('./03-easterDates')
 const astroDates = require('./04-astronomical')
+const lunarDates = require('./05-lunarDates')
 const nowYear = spacetime.now().year()
 
 const spacetimeHoliday = function(str, year) {
@@ -13,6 +14,7 @@ const spacetimeHoliday = function(str, year) {
   str = str.replace(/'s/, 's') // 'mother's day'
 
   let normal = str.replace(/ day$/, '')
+  normal = normal.replace(/^the /, '')
   normal = normal.replace(/^orthodox /, '') //orthodox good friday
 
   // try easier, unmoving holidays
@@ -32,6 +34,11 @@ const spacetimeHoliday = function(str, year) {
   }
   // solar-based holidays
   s = astroDates(str, normal, year)
+  if (s !== null) {
+    return s
+  }
+  // mostly muslim holidays
+  s = lunarDates(str, normal, year)
   if (s !== null) {
     return s
   }

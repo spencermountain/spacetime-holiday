@@ -43,13 +43,17 @@ spacetimeHoliday('fall equinox', 2030).format('nice-year')
 
 work-in-progress!
 
-- american/western popular holidays 👍
+- american/western holidays 👍
 
-- easter-based christian holidays 👍
+- Easter-based christian holidays 👍
 
-- astronomical holidays 👍
+- Astronomical holidays 👍
 
-- jewish-calendar holidays 😞
+- Muslim holidays (predicted) 😞
+
+- Jewish-calendar holidays (not implemented) 😞
+
+- Chinese-calendar holidays (not implemented) 😞
 
 ## See also
 

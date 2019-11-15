@@ -4,7 +4,7 @@ const feb = 1
 const march = 2
 const april = 3
 const may = 4
-const june = 5
+// const june = 5
 const july = 6
 // const august = 7
 const sep = 8
@@ -15,8 +15,6 @@ const dec = 11
 // hardcoded dates for astronomical holidays
 //   ----please change, every few years(!)---
 let dates = {
-  'mardi gras': [feb], //[47 days before easter],
-
   // Jewish
   'tu bishvat': [jan, 31],
   'tu bshevat': [jan, 31],
@@ -33,17 +31,6 @@ let dates = {
   'simchat torah': [oct, 2],
   chanukah: [dec, 3], // Ranged holiday [dec, 30],
   hanukkah: [dec, 3], // Ranged holiday [dec, 30],
-
-  // Muslim
-  'isra and miraj': [april, 13],
-  'lailat al-qadr': [june, 10],
-  'eid al-fitr': [june, 15],
-  'id al-Fitr': [june, 15],
-  'eid ul-Fitr': [june, 15],
-  ramadan: [may, 16], // Ranged holiday [, ],
-  'eid al-adha': [sep, 22],
-  muharram: [sep, 12],
-  'the prophets birthday': [nov, 21],
 
   // Additional important holidays
   'chinese new year': [feb, 16],

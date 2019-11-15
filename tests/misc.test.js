@@ -57,6 +57,15 @@ test('astronomical-holidays 2020', t => {
   t.end()
 })
 
+// test('lunar-holidays 2022', t => {
+//   let arr = [['eid al-fitr', 'May 2nd, 2022']]
+//   arr.forEach(a => {
+//     let s = spacetimeHoliday(a[0], 2022)
+//     t.equal(s.format('nice-year'), a[1], a[0])
+//   })
+//   t.end()
+// })
+
 test('no dates', t => {
   let arr = ['eassdfter', '', null, '  ', 234, 'june']
   arr.forEach(a => {

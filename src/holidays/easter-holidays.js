@@ -13,7 +13,9 @@ let dates = {
   'whit sunday': 49, // / pentecost (49 days after easter)
   'whit monday': 50, // (50 days after easter)
   'trinity sunday': 65, // (56 days after easter)
-  'corpus christi': 60 // (60 days after easter)
+  'corpus christi': 60, // (60 days after easter)
+
+  'mardi gras': -47 //(47 days before easter)
 }
 dates['easter sunday'] = dates.easter
 dates['pentecost'] = dates['whit sunday']
