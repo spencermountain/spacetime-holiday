@@ -7,7 +7,7 @@
     calculate the calendar-date of holidays
   </div>
   <a href="https://npmjs.org/package/spacetime-holiday">
-    <img src="https://img.shields.io/npm/v/spacetime-holday.svg?style=flat-square" />
+    <img src="https://img.shields.io/npm/v/spacetime-holiday.svg?style=flat-square" />
   </a>
   <a href="https://unpkg.com/spacetime-holiday/builds/spacetime-holiday.min.js">
     <img src="https://badge-size.herokuapp.com/spencermountain/spacetime-holiday/master/builds/spacetime-holiday.min.js" />
