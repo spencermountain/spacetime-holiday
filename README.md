@@ -8,8 +8,8 @@
   <a href="https://npmjs.org/package/spacetime-holiday">
     <img src="https://img.shields.io/npm/v/spacetime-holday.svg?style=flat-square" />
   </a>
-  <a href="https://unpkg.com/spacetime/builds/spacetime-holiday.min.js">
-    <img src="https://badge-size.herokuapp.com/spencermountain/spacetime-holday/master/builds/spacetime-holiday.min.js" />
+  <a href="https://unpkg.com/spacetime-holiday/builds/spacetime-holiday.min.js">
+    <img src="https://badge-size.herokuapp.com/spencermountain/spacetime-holiday/master/builds/spacetime-holiday.min.js" />
   </a>
   <div>
     <sup>
@@ -24,6 +24,10 @@ Some holidays are the same day every year, some holidays change astronomically, 
 This library tries its best to reconcile them.
 
 if it finds a date, it returns a [spacetime](https://github.com/spencermountain/spacetime) object.
+
+to conserve filesize of your build, **spacetime** is a peerDependency, so must be installed separately:
+
+`npm i spacetime`
 
 `npm i spacetime-holiday`
 
