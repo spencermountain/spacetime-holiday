@@ -6,6 +6,7 @@ let dates = {
   'palm sunday': 7, // (1 week before easter)
   'maundy thursday': -3, // (3 days before easter)
   'good friday': -2, // (2 days before easter)
+  'holy saturday': -1, // (1 days before easter)
   'easter saturday': -1, // (1 day before easter)
   'easter monday': 1, // (1 day after easter)
   'ascension day': 39, // (39 days after easter)
@@ -14,5 +15,8 @@ let dates = {
   'trinity sunday': 65, // (56 days after easter)
   'corpus christi': 60 // (60 days after easter)
 }
+dates['easter sunday'] = dates.easter
+dates['pentecost'] = dates['whit sunday']
+dates['whitsun'] = dates['whit sunday']
 
 module.exports = dates

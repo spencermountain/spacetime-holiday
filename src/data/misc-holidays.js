@@ -25,29 +25,6 @@ const sun = 'sunday'
 let dates = {
   'mardi gras': [feb], //[47 days before easter],
 
-  // Astronomical religious and cultural holidays
-  // Catholic + Christian
-  'ash wednesday': [feb, 14], // [First day of Lent],
-  'palm sunday': [march, 25], // [Sunday before Easter Sunday],
-  'maundy thursday': [march, 29], // [The day before Good Friday],
-  'good friday': [march, 30],
-  'holy saturday': [march, 31],
-  easter: [april, 1],
-  'easter sunday': [april, 1],
-  'easter monday': [april, 2],
-  'orthodox good friday': [april, 6],
-  'orthodox holy saturday': [april, 7],
-  'orthodox easter': [april, 8],
-  'orthodox easter monday': [april, 9],
-  'ascension day': [may, 10],
-  pentecost: [may, 20],
-  whitsunday: [may, 20],
-  'whit sunday': [may, 20],
-  'whit monday': [may, 21], // [The day after Pentecost],
-  'trinity sunday': [may, 27], // [The Sunday after Pentecost],
-  'corpus christi': [may, 31],
-  advent: [dec, 2], // Ranged holiday [dec, 25] [The Sunday nearest St Andrew’s Day, encompassing the next three Sundays, ending on Christmas Day],
-
   // Jewish
   'tu bishvat': [jan, 31],
   'tu bshevat': [jan, 31],

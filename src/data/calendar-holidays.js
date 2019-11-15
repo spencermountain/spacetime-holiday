@@ -36,6 +36,7 @@ let holidays = {
   // 'memorial day': [may], //[last monday in may],
   // 'us election': [nov], // [Tuesday following the first Monday in November],
   // 'cyber monday': [nov]
+  // 'advent': [] // fourth Sunday before Christmas
 }
 
 // add aliases
