@@ -21,7 +21,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "spacetime": "^5.8.2"
+    "spacetime": "^6.3.0"
   },
   "devDependencies": {
     "@babel/core": "7.7.2",
