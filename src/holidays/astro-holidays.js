@@ -11,7 +11,7 @@ dates['march equinox'] = dates['spring equinox']
 dates['vernal equinox'] = dates['spring equinox']
 dates['ostara'] = dates['spring equinox']
 
-dates['june solistice'] = dates['summer solistice']
+dates['june solstice'] = dates['summer solistice']
 dates['litha'] = dates['summer solistice']
 
 dates['autumn equinox'] = dates['fall equinox']

@@ -30,15 +30,26 @@ if it finds a date, it returns a [spacetime](https://github.com/spencermountain/
 ```js
 const spacetimeHoliday = require('spacetime-holiday')
 
-spacetimeHoliday('groundhog day').log()
-
-let s = spacetimeHoliday('easter', 2020)
+let s = spacetimeHoliday('easter monday', 2020)
 s.format('iso-short')
 // 2020-04-12
 
+spacetimeHoliday('groundhog day').format('day') // defaults to next instance
+// 'Saturday'
+
+spacetimeHoliday('fall equinox', 2030).format('nice-year')
+// 'Sept 22nd, 2030'
 ```
 
-work-in-progress
+work-in-progress!
+
+- american/western popular holidays 👍
+
+- easter-based christian holidays 👍
+
+- astronomical holidays 👍
+
+- jewish-calendar holidays 😞
 
 ## See also
 

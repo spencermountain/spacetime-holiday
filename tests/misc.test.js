@@ -44,6 +44,19 @@ test('easter-holidays 2020', t => {
   t.end()
 })
 
+test('astronomical-holidays 2020', t => {
+  let arr = [
+    ['spring equinox', 'Mar 20th, 2020'],
+    ['june solstice', 'Jun 20th, 2020'],
+    ['winter solstice  ', 'Dec 21st, 2020']
+  ]
+  arr.forEach(a => {
+    let s = spacetimeHoliday(a[0], 2020)
+    t.equal(s.format('nice-year'), a[1], a[0])
+  })
+  t.end()
+})
+
 test('no dates', t => {
   let arr = ['eassdfter', '', null, '  ', 234, 'june']
   arr.forEach(a => {

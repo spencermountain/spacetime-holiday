@@ -1,6 +1,6 @@
 const spacetime = require('spacetime')
 const calcSeasons = require('./lib/seasons')
-const holidays = require('./data/astro-holidays')
+const holidays = require('./holidays/astro-holidays')
 
 const astroDates = function(str, normal, year) {
   if (holidays.hasOwnProperty(str) || holidays.hasOwnProperty(normal)) {

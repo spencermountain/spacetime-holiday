@@ -1,4 +1,4 @@
-const holidays = require('./data/easter-holidays')
+const holidays = require('./holidays/easter-holidays')
 const spacetime = require('spacetime')
 const calcEaster = require('./lib/calcEaster')
 

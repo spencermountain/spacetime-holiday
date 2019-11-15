@@ -1,5 +1,5 @@
 const spacetime = require('spacetime')
-const calendar = require('./data/calendar-holidays')
+const calendar = require('./holidays/calendar-holidays')
 
 // holidays that are the same date every year
 const fixedDates = function(str, normal, year) {
