@@ -30,6 +30,11 @@ const spacetimeHoliday = function(str, year) {
   if (s !== null) {
     return s
   }
+  // solar-based holidays
+  s = astroDates(str, normal, year)
+  if (s !== null) {
+    return s
+  }
 
   return null
 }

@@ -12,14 +12,6 @@ const oct = 9
 const nov = 10
 const dec = 11
 
-const mon = 'monday'
-const tues = 'tuesday'
-const wed = 'wednesday'
-const thurs = 'thursday'
-const fri = 'friday'
-const sat = 'saturday'
-const sun = 'sunday'
-
 // hardcoded dates for astronomical holidays
 //   ----please change, every few years(!)---
 let dates = {
@@ -52,20 +44,6 @@ let dates = {
   'eid al-adha': [sep, 22],
   muharram: [sep, 12],
   'the prophets birthday': [nov, 21],
-
-  // Pagan / metal
-  ostara: [march, 20],
-  'march equinox': [march, 20],
-  'vernal equinox': [march, 20],
-  litha: [june, 21],
-  'june solistice': [june, 21],
-  'summer solistice': [june, 21],
-  mabon: [sep, 23],
-  'september equinox': [sep, 23],
-  'autumnal equinox': [sep, 23],
-  yule: [dec, 21],
-  'december solstice': [dec, 21],
-  'winter solstice': [dec, 21],
 
   // Additional important holidays
   'chinese new year': [feb, 16],
