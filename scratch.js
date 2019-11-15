@@ -1,9 +1,6 @@
-// const spacetimeHoliday = require('./src')
+// const spacetimeHoliday = require('./builds/spacetime-holiday.js')
+const spacetimeHoliday = require('./src')
 
-// const spacetime = require('spacetime')
-const spacetimeHoliday = require('./builds/spacetime-holiday.js')
-
-const s = spacetimeHoliday('christmas', 2020)
-console.log(s.format('iso-short'))
-
+let s = spacetimeHoliday('easter', 2019)
+console.log(s.format('nice-year'))
 // spacetimeHoliday('groundhog day').log()

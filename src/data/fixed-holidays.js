@@ -1,16 +1,16 @@
 //yep,
-const jan = 0
-const feb = 1
-const march = 2
-const april = 3
-const may = 4
-const june = 5
-const july = 6
-const august = 7
-const sep = 8
-const oct = 9
-const nov = 10
-const dec = 11
+const jan = 'january'
+const feb = 'february'
+const mar = 'march'
+const apr = 'april'
+const may = 'may'
+const jun = 'june'
+const jul = 'july'
+const aug = 'august'
+const sep = 'september'
+const oct = 'october'
+const nov = 'november'
+const dec = 'december'
 
 module.exports = {
   'new years eve': [dec, 31],
@@ -24,23 +24,24 @@ module.exports = {
   'valentines day': [feb, 14],
   'saint valentines day': [feb, 14],
   'st valentines day ': [feb, 14],
-  'saint patricks day': [march, 17],
-  'st patricks day': [march, 17],
-  'april fools': [april, 1],
-  'april fools day': [april, 1],
-  'emancipation day': [april, 16],
+  'saint patricks day': [mar, 17],
+  'st patricks day': [mar, 17],
+  'april fools': [apr, 1],
+  'april fools day': [apr, 1],
+  'emancipation day': [apr, 16],
+  'tax day': [apr, 15], //US
   'labour day': [may, 1],
   'cinco de mayo': [may, 5],
   'national nurses day': [may, 6],
   'harvey milk day': [may, 22],
   'victoria day': [may, 24],
-  juneteenth: [june, 19],
-  'canada day': [july, 1],
-  'independence day': [july, 4],
-  'independents day': [july, 4],
-  'bastille day': [july, 14],
-  'purple heart day': [august, 7],
-  'womens equality day': [august, 26],
+  juneteenth: [jun, 19],
+  'canada day': [jul, 1],
+  'independence day': [jul, 4],
+  'independents day': [jul, 4],
+  'bastille day': [jul, 14],
+  'purple heart day': [aug, 7],
+  'womens equality day': [aug, 26],
   '16 de septiembre': [sep, 16],
   'dieciseis de septiembre': [sep, 16],
   'grito de dolores': [sep, 16],
@@ -67,7 +68,7 @@ module.exports = {
   epiphany: [jan, 6],
   'orthodox christmas day': [jan, 7],
   'orthodox new year': [jan, 14],
-  'assumption of mary': [august, 15],
+  'assumption of mary': [aug, 15],
   'all souls day': [nov, 2],
   'feast of the immaculate conception': [dec, 8],
   'feast of our lady of guadalupe': [dec, 12],
@@ -78,6 +79,6 @@ module.exports = {
   // Pagan / metal 🤘
   imbolc: [feb, 2],
   beltaine: [may, 1],
-  lughnassadh: [august, 1],
+  lughnassadh: [aug, 1],
   samhain: [oct, 31]
 }

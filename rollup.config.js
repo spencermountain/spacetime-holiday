@@ -3,7 +3,6 @@ import json from 'rollup-plugin-json'
 import { terser } from 'rollup-plugin-terser'
 import resolve from 'rollup-plugin-node-resolve'
 import babel from 'rollup-plugin-babel'
-// import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 
 export default [
   {

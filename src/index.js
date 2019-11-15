@@ -1,22 +1,30 @@
-const fixed = require('./data/fixed')
 const spacetime = require('spacetime')
+const fixedDates = require('./01-fixedDates')
+const nthWeekday = require('./02-nthWeekday')
+const easterDates = require('./03-easterDates')
 const nowYear = spacetime.now().year()
 
 const spacetimeHoliday = function(str, year) {
   year = year || nowYear
   str = str || ''
   str = str.trim().toLowerCase()
+  str = str.replace(/'s/, 's') // 'mother's day'
 
   let normal = str.replace(/ day$/, '')
 
   // try easier, unmoving holidays
-  if (fixed.hasOwnProperty(str) || fixed.hasOwnProperty(normal)) {
-    let arr = fixed[str] || fixed[normal] || []
-    let s = spacetime.now()
-    s = s.year(year)
-    s = s.startOf('year')
-    s = s.month(arr[0])
-    s = s.date(arr[1])
+  let s = fixedDates(str, normal, year)
+  if (s !== null) {
+    return s
+  }
+  // try 'nth monday' holidays
+  s = nthWeekday(str, normal, year)
+  if (s !== null) {
+    return s
+  }
+  // easter-based holidays
+  s = easterDates(str, normal, year)
+  if (s !== null) {
     return s
   }
 
