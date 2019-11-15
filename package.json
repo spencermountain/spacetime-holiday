@@ -1,6 +1,6 @@
 {
   "name": "spacetime-holiday",
-  "description": "reckoning of popular holiday dates ",
+  "description": "reckoning of common holiday dates ",
   "version": "0.0.1",
   "main": "builds/spacetime-holiday.js",
   "unpkg": "builds/spacetime-holiday.min.js",
@@ -9,8 +9,9 @@
   "homepage": "https://github.com/spencermountain/spacetime-holiday",
   "scripts": {
     "watch": "amble scratch.js",
-    "build": "npm run version && rollup -c && npm run filesize",
-    "test": "TESTENV=dev tape ./test/**/*.test.js | tap-dancer"
+    "build": "rollup -c",
+    "test": "TESTENV=dev tape ./tests/**/*.test.js | tap-dancer",
+    "testb": "TESTENV=prod tape ./tests/**/*.test.js | tap-dancer"
   },
   "prettier": {
     "trailingComma": "none",
@@ -31,6 +32,7 @@
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-terser": "5.1.2",
     "tap-dancer": "0.2.0",
     "tape": "4.11.0"

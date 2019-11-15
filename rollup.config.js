@@ -3,6 +3,7 @@ import json from 'rollup-plugin-json'
 import { terser } from 'rollup-plugin-terser'
 import resolve from 'rollup-plugin-node-resolve'
 import babel from 'rollup-plugin-babel'
+// import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 
 export default [
   {
@@ -13,7 +14,8 @@ export default [
         format: 'esm'
       }
     ],
-    plugins: [resolve(), json(), commonjs()]
+    plugins: [resolve(), json(), commonjs()],
+    external: ['spacetime']
   },
   {
     input: 'src/index.js',
@@ -22,7 +24,10 @@ export default [
         file: 'builds/spacetime-holiday.js',
         format: 'umd',
         sourcemap: true,
-        name: 'spacetimeHoliday'
+        name: 'spacetimeHoliday',
+        globals: {
+          spacetime: 'spacetime'
+        }
       }
     ],
     plugins: [
@@ -33,7 +38,8 @@ export default [
         babelrc: false,
         presets: ['@babel/preset-env']
       })
-    ]
+    ],
+    external: ['spacetime']
   },
   {
     input: 'src/index.js',
@@ -41,7 +47,10 @@ export default [
       {
         file: 'builds/spacetime-holiday.min.js',
         format: 'umd',
-        name: 'spacetimeHoliday'
+        name: 'spacetimeHoliday',
+        globals: {
+          spacetime: 'spacetime'
+        }
       }
     ],
     plugins: [
@@ -53,6 +62,7 @@ export default [
         presets: ['@babel/preset-env']
       }),
       terser()
-    ]
+    ],
+    external: ['spacetime']
   }
 ]
