@@ -1,0 +1,38 @@
+{
+  "name": "spacetime-holiday",
+  "description": "reckoning of popular holiday dates ",
+  "version": "0.0.1",
+  "main": "builds/spacetime-holiday.js",
+  "unpkg": "builds/spacetime-holiday.min.js",
+  "licence": "MIT",
+  "author": "Spencer Kelly",
+  "homepage": "https://github.com/spencermountain/spacetime-holiday",
+  "scripts": {
+    "watch": "amble scratch.js",
+    "build": "npm run version && rollup -c && npm run filesize",
+    "test": "TESTENV=dev tape ./test/**/*.test.js | tap-dancer"
+  },
+  "prettier": {
+    "trailingComma": "none",
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 100
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "spacetime": "^5.8.2"
+  },
+  "devDependencies": {
+    "@babel/core": "7.7.2",
+    "@babel/preset-env": "7.7.1",
+    "amble": "0.0.7",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "5.2.0",
+    "rollup-plugin-terser": "5.1.2",
+    "tap-dancer": "0.2.0",
+    "tape": "4.11.0"
+  }
+}
