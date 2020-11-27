@@ -1,10 +1,12 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('spacetime')) :
   typeof define === 'function' && define.amd ? define(['spacetime'], factory) :
-  (global = global || self, global.spacetimeHoliday = factory(global.spacetime));
-}(this, function (spacetime) { 'use strict';
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.spacetimeHoliday = factory(global.spacetime));
+}(this, (function (spacetime) { 'use strict';
 
-  spacetime = spacetime && spacetime.hasOwnProperty('default') ? spacetime['default'] : spacetime;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var spacetime__default = /*#__PURE__*/_interopDefaultLegacy(spacetime);
 
   //yep,
   var jan = 'january';
@@ -91,10 +93,10 @@
     samhain: [oct, 31]
   };
 
-  var fixedDates = function fixedDates(str, normal, year) {
+  var fixedDates = function fixedDates(str, normal, year, tz) {
     if (fixedHolidays.hasOwnProperty(str) || fixedHolidays.hasOwnProperty(normal)) {
       var arr = fixedHolidays[str] || fixedHolidays[normal] || [];
-      var s = spacetime.now();
+      var s = spacetime__default['default'].now(tz);
       s = s.year(year);
       s = s.startOf('year');
       s = s.month(arr[0]);
@@ -162,10 +164,10 @@
   holidays['mlk day'] = holidays['martin luther king day'];
   var calendarHolidays = holidays;
 
-  var fixedDates$1 = function fixedDates(str, normal, year) {
+  var fixedDates$1 = function fixedDates(str, normal, year, tz) {
     if (calendarHolidays.hasOwnProperty(str) || calendarHolidays.hasOwnProperty(normal)) {
       var arr = calendarHolidays[str] || calendarHolidays[normal] || [];
-      var s = spacetime.now();
+      var s = spacetime__default['default'].now(tz);
       s = s.year(year); // [3rd, 'monday', 'january']
 
       s = s.month(arr[2]);
@@ -252,7 +254,7 @@
 
   var calcEaster_1 = calcEaster;
 
-  var easterDates = function easterDates(str, normal, year) {
+  var easterDates = function easterDates(str, normal, year, tz) {
     if (easterHolidays.hasOwnProperty(str) || easterHolidays.hasOwnProperty(normal)) {
       var days = easterHolidays[str] || easterHolidays[normal] || [];
       var date = calcEaster_1(year);
@@ -261,7 +263,7 @@
         return null; //no easter for this year
       }
 
-      var e = spacetime(date);
+      var e = spacetime__default['default'](date, tz);
       e = e.year(year);
       var s = e.add(days, 'day');
 
@@ -343,7 +345,7 @@
   dates$1['yule'] = dates$1['winter solistice'];
   var astroHolidays = dates$1;
 
-  var astroDates = function astroDates(str, normal, year) {
+  var astroDates = function astroDates(str, normal, year, tz) {
     if (astroHolidays.hasOwnProperty(str) || astroHolidays.hasOwnProperty(normal)) {
       var season = astroHolidays[str] || astroHolidays[normal];
       var seasons$1 = seasons(year);
@@ -352,7 +354,7 @@
         return null; // couldn't figure it out
       }
 
-      var s = spacetime(seasons$1[season]);
+      var s = spacetime__default['default'](seasons$1[season], tz);
 
       if (s.isValid()) {
         return s;
@@ -381,7 +383,7 @@
 
   var dayDiff = -10.64;
 
-  var lunarDates = function lunarDates(str, normal, year) {
+  var lunarDates = function lunarDates(str, normal, year, tz) {
     if (lunarHolidays.hasOwnProperty(str) || lunarHolidays.hasOwnProperty(normal)) {
       var date = lunarHolidays[str] || lunarHolidays[normal] || [];
 
@@ -390,7 +392,7 @@
       } // start at 2018
 
 
-      var s = spacetime(date + ' 2018');
+      var s = spacetime__default['default'](date + ' 2018', tz);
       var diff = year - 2018;
       var toAdd = diff * dayDiff;
       s = s.add(toAdd, 'day');
@@ -408,9 +410,9 @@
 
   var _05LunarDates = lunarDates;
 
-  var nowYear = spacetime.now().year();
+  var nowYear = spacetime__default['default'].now().year();
 
-  var spacetimeHoliday = function spacetimeHoliday(str, year) {
+  var spacetimeHoliday = function spacetimeHoliday(str, year, tz) {
     year = year || nowYear;
     str = str || '';
     str = String(str);
@@ -422,35 +424,35 @@
     normal = normal.replace(/^orthodox /, ''); //orthodox good friday
     // try easier, unmoving holidays
 
-    var s = _01FixedDates(str, normal, year);
+    var s = _01FixedDates(str, normal, year, tz);
 
     if (s !== null) {
       return s;
     } // try 'nth monday' holidays
 
 
-    s = _02NthWeekday(str, normal, year);
+    s = _02NthWeekday(str, normal, year, tz);
 
     if (s !== null) {
       return s;
     } // easter-based holidays
 
 
-    s = _03EasterDates(str, normal, year);
+    s = _03EasterDates(str, normal, year, tz);
 
     if (s !== null) {
       return s;
     } // solar-based holidays
 
 
-    s = _04Astronomical(str, normal, year);
+    s = _04Astronomical(str, normal, year, tz);
 
     if (s !== null) {
       return s;
     } // mostly muslim holidays
 
 
-    s = _05LunarDates(str, normal, year);
+    s = _05LunarDates(str, normal, year, tz);
 
     if (s !== null) {
       return s;
@@ -463,5 +465,5 @@
 
   return src;
 
-}));
+})));
 //# sourceMappingURL=spacetime-holiday.js.map

@@ -86,10 +86,10 @@ var fixedHolidays = {
 };
 
 // holidays that are the same date every year
-const fixedDates = function(str, normal, year) {
+const fixedDates = function (str, normal, year, tz) {
   if (fixedHolidays.hasOwnProperty(str) || fixedHolidays.hasOwnProperty(normal)) {
     let arr = fixedHolidays[str] || fixedHolidays[normal] || [];
-    let s = spacetime.now();
+    let s = spacetime.now(tz);
     s = s.year(year);
     s = s.startOf('year');
     s = s.month(arr[0]);
@@ -150,10 +150,10 @@ holidays['mlk day'] = holidays['martin luther king day'];
 var calendarHolidays = holidays;
 
 // holidays that are the same date every year
-const fixedDates$1 = function(str, normal, year) {
+const fixedDates$1 = function (str, normal, year, tz) {
   if (calendarHolidays.hasOwnProperty(str) || calendarHolidays.hasOwnProperty(normal)) {
     let arr = calendarHolidays[str] || calendarHolidays[normal] || [];
-    let s = spacetime.now();
+    let s = spacetime.now(tz);
     s = s.year(year);
 
     // [3rd, 'monday', 'january']
@@ -230,7 +230,7 @@ const calcEaster = function(year) {
 var calcEaster_1 = calcEaster;
 
 //calculate any holidays based on easter
-const easterDates = function(str, normal, year) {
+const easterDates = function (str, normal, year, tz) {
   if (easterHolidays.hasOwnProperty(str) || easterHolidays.hasOwnProperty(normal)) {
     let days = easterHolidays[str] || easterHolidays[normal] || [];
 
@@ -238,7 +238,7 @@ const easterDates = function(str, normal, year) {
     if (!date) {
       return null //no easter for this year
     }
-    let e = spacetime(date);
+    let e = spacetime(date, tz);
     e = e.year(year);
 
     let s = e.add(days, 'day');
@@ -433,14 +433,14 @@ dates$1['yule'] = dates$1['winter solistice'];
 
 var astroHolidays = dates$1;
 
-const astroDates = function(str, normal, year) {
+const astroDates = function (str, normal, year, tz) {
   if (astroHolidays.hasOwnProperty(str) || astroHolidays.hasOwnProperty(normal)) {
     let season = astroHolidays[str] || astroHolidays[normal];
     let seasons$1 = seasons(year);
     if (!season || !seasons$1 || !seasons$1[season]) {
       return null // couldn't figure it out
     }
-    let s = spacetime(seasons$1[season]);
+    let s = spacetime(seasons$1[season], tz);
     if (s.isValid()) {
       return s
     }
@@ -467,14 +467,14 @@ var lunarHolidays = dates$2;
 // (lunar year is 354.36 days)
 const dayDiff = -10.64;
 
-const lunarDates = function(str, normal, year) {
+const lunarDates = function (str, normal, year, tz) {
   if (lunarHolidays.hasOwnProperty(str) || lunarHolidays.hasOwnProperty(normal)) {
     let date = lunarHolidays[str] || lunarHolidays[normal] || [];
     if (!date) {
       return null
     }
     // start at 2018
-    let s = spacetime(date + ' 2018');
+    let s = spacetime(date + ' 2018', tz);
     let diff = year - 2018;
     let toAdd = diff * dayDiff;
     s = s.add(toAdd, 'day');
@@ -493,7 +493,7 @@ var _05LunarDates = lunarDates;
 
 const nowYear = spacetime.now().year();
 
-const spacetimeHoliday = function(str, year) {
+const spacetimeHoliday = function (str, year, tz) {
   year = year || nowYear;
   str = str || '';
   str = String(str);
@@ -505,27 +505,27 @@ const spacetimeHoliday = function(str, year) {
   normal = normal.replace(/^orthodox /, ''); //orthodox good friday
 
   // try easier, unmoving holidays
-  let s = _01FixedDates(str, normal, year);
+  let s = _01FixedDates(str, normal, year, tz);
   if (s !== null) {
     return s
   }
   // try 'nth monday' holidays
-  s = _02NthWeekday(str, normal, year);
+  s = _02NthWeekday(str, normal, year, tz);
   if (s !== null) {
     return s
   }
   // easter-based holidays
-  s = _03EasterDates(str, normal, year);
+  s = _03EasterDates(str, normal, year, tz);
   if (s !== null) {
     return s
   }
   // solar-based holidays
-  s = _04Astronomical(str, normal, year);
+  s = _04Astronomical(str, normal, year, tz);
   if (s !== null) {
     return s
   }
   // mostly muslim holidays
-  s = _05LunarDates(str, normal, year);
+  s = _05LunarDates(str, normal, year, tz);
   if (s !== null) {
     return s
   }
