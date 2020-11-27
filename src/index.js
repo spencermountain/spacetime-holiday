@@ -6,7 +6,7 @@ const astroDates = require('./04-astronomical')
 const lunarDates = require('./05-lunarDates')
 const nowYear = spacetime.now().year()
 
-const spacetimeHoliday = function(str, year) {
+const spacetimeHoliday = function (str, year, tz) {
   year = year || nowYear
   str = str || ''
   str = String(str)
@@ -18,27 +18,27 @@ const spacetimeHoliday = function(str, year) {
   normal = normal.replace(/^orthodox /, '') //orthodox good friday
 
   // try easier, unmoving holidays
-  let s = fixedDates(str, normal, year)
+  let s = fixedDates(str, normal, year, tz)
   if (s !== null) {
     return s
   }
   // try 'nth monday' holidays
-  s = nthWeekday(str, normal, year)
+  s = nthWeekday(str, normal, year, tz)
   if (s !== null) {
     return s
   }
   // easter-based holidays
-  s = easterDates(str, normal, year)
+  s = easterDates(str, normal, year, tz)
   if (s !== null) {
     return s
   }
   // solar-based holidays
-  s = astroDates(str, normal, year)
+  s = astroDates(str, normal, year, tz)
   if (s !== null) {
     return s
   }
   // mostly muslim holidays
-  s = lunarDates(str, normal, year)
+  s = lunarDates(str, normal, year, tz)
   if (s !== null) {
     return s
   }

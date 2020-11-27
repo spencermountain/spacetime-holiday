@@ -2,10 +2,10 @@ const spacetime = require('spacetime')
 const calendar = require('./holidays/calendar-holidays')
 
 // holidays that are the same date every year
-const fixedDates = function(str, normal, year) {
+const fixedDates = function (str, normal, year, tz) {
   if (calendar.hasOwnProperty(str) || calendar.hasOwnProperty(normal)) {
     let arr = calendar[str] || calendar[normal] || []
-    let s = spacetime.now()
+    let s = spacetime.now(tz)
     s = s.year(year)
 
     // [3rd, 'monday', 'january']

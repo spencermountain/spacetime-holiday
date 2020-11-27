@@ -3,7 +3,7 @@ const spacetime = require('spacetime')
 const calcEaster = require('./lib/calcEaster')
 
 //calculate any holidays based on easter
-const easterDates = function(str, normal, year) {
+const easterDates = function (str, normal, year, tz) {
   if (holidays.hasOwnProperty(str) || holidays.hasOwnProperty(normal)) {
     let days = holidays[str] || holidays[normal] || []
 
@@ -11,7 +11,7 @@ const easterDates = function(str, normal, year) {
     if (!date) {
       return null //no easter for this year
     }
-    let e = spacetime(date)
+    let e = spacetime(date, tz)
     e = e.year(year)
 
     let s = e.add(days, 'day')

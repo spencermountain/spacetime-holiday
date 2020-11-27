@@ -1,7 +1,7 @@
 const test = require('tape')
 const spacetimeHoliday = require('./_lib')
 
-test('fixed-holidays', t => {
+test('fixed-holidays', (t) => {
   let arr = [
     ['christmas', '2019-12-25'],
     ['christmas day', '2019-12-25'],
@@ -9,14 +9,14 @@ test('fixed-holidays', t => {
     ['boxing day', '2019-12-26'],
     ['christmas eve', '2019-12-24']
   ]
-  arr.forEach(a => {
+  arr.forEach((a) => {
     let s = spacetimeHoliday(a[0], 2019)
     t.equal(s.format('iso-short'), a[1], a[0])
   })
   t.end()
 })
 
-test('calendar-holidays', t => {
+test('calendar-holidays', (t) => {
   let s = spacetimeHoliday('mothers day', 2020)
   t.equal(s.format('nice-year'), 'May 10th, 2020', 'mothers day 2020')
 
@@ -29,7 +29,7 @@ test('calendar-holidays', t => {
   t.end()
 })
 
-test('easter-holidays 2020', t => {
+test('easter-holidays 2020', (t) => {
   let arr = [
     ['easter', 'Apr 12th, 2020'],
     ['easter monday', 'Apr 13th, 2020'],
@@ -37,20 +37,20 @@ test('easter-holidays 2020', t => {
     ['pentecost', 'May 31st, 2020']
     // ['lent', 'Feb 26th, 2020']
   ]
-  arr.forEach(a => {
+  arr.forEach((a) => {
     let s = spacetimeHoliday(a[0], 2020)
     t.equal(s.format('nice-year'), a[1], a[0])
   })
   t.end()
 })
 
-test('astronomical-holidays 2020', t => {
+test('astronomical-holidays 2020', (t) => {
   let arr = [
     ['spring equinox', 'Mar 20th, 2020'],
     ['june solstice', 'Jun 20th, 2020'],
     ['winter solstice  ', 'Dec 21st, 2020']
   ]
-  arr.forEach(a => {
+  arr.forEach((a) => {
     let s = spacetimeHoliday(a[0], 2020)
     t.equal(s.format('nice-year'), a[1], a[0])
   })
@@ -66,11 +66,17 @@ test('astronomical-holidays 2020', t => {
 //   t.end()
 // })
 
-test('no dates', t => {
+test('no dates', (t) => {
   let arr = ['eassdfter', '', null, '  ', 234, 'june']
-  arr.forEach(a => {
+  arr.forEach((a) => {
     let s = spacetimeHoliday(a, 2020)
     t.equal(s, null, a)
   })
+  t.end()
+})
+
+test('pass timezone', (t) => {
+  let s = spacetimeHoliday('ramadan', 2019, 'Canada/Pacific')
+  t.equal(s.timezone().name, 'Canada/Pacific', 'passed timezone')
   t.end()
 })

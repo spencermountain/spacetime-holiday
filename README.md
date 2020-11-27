@@ -17,7 +17,6 @@
       By <a href="https://github.com/spencermountain">Spencer Kelly</a>
     </sup>
   </div>
-  <hr/>
 </div>
 
 Some holidays are the same day every year, some holidays change astronomically, some by calendar rules like 'third thursday in June'.
@@ -44,6 +43,11 @@ spacetimeHoliday('groundhog day').format('day') // defaults to next instance
 
 spacetimeHoliday('fall equinox', 2030).format('nice-year')
 // 'Sept 22nd, 2030'
+
+// add a timezone
+let s = spacetimeHoliday('ramadan', 2019, 'Canada/Pacific')
+s.iso()
+// 2019-05-05T00:00:00.000-07:00
 ```
 
 work-in-progress!
